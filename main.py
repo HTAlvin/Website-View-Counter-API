@@ -1,10 +1,11 @@
 """
 Created by: Alvin Hartanto
-Version   : 0.1.5
-Date      : 26/08/2022
+Version   : 0.2.2
+Date      : 26/08/2022 (v27/08/2022)
 -=-=-=-=-=-=-=-=-=-=-
-A general API for counting web views hosted on Replit.com.
-> Current code is under evaluation and testing
+A general API for personal web service.
+General usage available:
+>  /api/viewcount/*
 
 -=-=-=-=-=-=-=-=-=-=-
 Credit on basecode (tutorial) goes to @badvillain01
@@ -13,10 +14,11 @@ Credit on basecode (tutorial) goes to @badvillain01
 from gevent import monkey
 monkey.patch_all()
 
-from flask import Flask, jsonify
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from gevent.pywsgi import WSGIServer
 import dataHandler
+import contactHandler
 import timer
 
 ## Set up a Flask and allow CORS
@@ -33,6 +35,7 @@ CORS(APIapp)
 def home():
   
   return "Alive and running"
+
 
 
 
@@ -95,8 +98,22 @@ def retrieve(Name):
   return jsonify({"name":Name, "viewCount": reader})
 
 
+  
+
+## Primary endpoint for Contacts submission
+@APIapp.route('/api/contact/submit', methods = ['POST'])
+def receiveContact():
+  data = request.get_json()
+
+  contactReq = contactHandler.writeData(data)
+  
+  return jsonify({"result":contactReq})
+
+  
 
 
 ## Serve API on Replit production server
 http_server = WSGIServer(('0.0.0.0', 8080), APIapp)
 http_server.serve_forever()
+
+
