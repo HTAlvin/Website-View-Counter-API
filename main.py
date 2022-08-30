@@ -1,7 +1,7 @@
 """
 Created by: Alvin Hartanto
-Version   : 0.2.2
-Date      : 26/08/2022 (v27/08/2022)
+Version   : 0.2.3
+Date      : 26/08/2022 (v28/08/2022)
 -=-=-=-=-=-=-=-=-=-=-
 A general API for personal web service.
 General usage available:
@@ -107,6 +107,15 @@ def receiveContact():
 
   contactReq = contactHandler.writeData(data)
   
+  return jsonify({"result":contactReq})
+
+
+
+  
+## Primary endroute to call report for personal webpage
+@APIapp.route('/api/contact/reportvisits', methods = ['POST'])
+def reportVisitNum():
+  contactReq = contactHandler.reportVisit("data.json")
   return jsonify({"result":contactReq})
 
   
