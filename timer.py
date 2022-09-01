@@ -10,6 +10,7 @@ Feel free to reuse this source code.
 from datetime import date
 import json
 import dataHandler
+import contactHandler
 
 ## define filenames
 history = "history.json"
@@ -28,7 +29,12 @@ def checkNewMonth():
   if reset == "true":
     if date.today().day == 1:
       ## Reset data
+      contactHandler.reportVisit("data.json")
       dataHandler.passHistory()
+      data["reset"] = "false"
+
+      with open(history, "w") as records:
+        json.dump(data, records)
       return "success"
 
       
