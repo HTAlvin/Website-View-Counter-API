@@ -4,6 +4,13 @@ A general visit counter API hosted on Replit.com
 
 Feel free to reuse, edit, distribute this project.
 
+To call the view counter API, use the following link:
+
+https://WebViewCounterAPI.alvin-hartantoh.repl.co/api/viewcount/add/<id_name>
+https://WebViewCounterAPI.alvin-hartantoh.repl.co/api/viewcount/retrieve/<id_name>
+
+With <id_name> being your given identifier.
+
 extract venv.rar and ensure venv folder is on the same path as main.py
 
 
