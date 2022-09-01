@@ -7,11 +7,16 @@ Feel free to reuse, edit, distribute this project.
 To call the view counter API, use the following link:
 
 https://WebViewCounterAPI.alvin-hartantoh.repl.co/api/viewcount/add/<id_name>
+
+Or
+
 https://WebViewCounterAPI.alvin-hartantoh.repl.co/api/viewcount/retrieve/<id_name>
 
 With <id_name> being your given identifier.
 
-extract venv.rar and ensure venv folder is on the same path as main.py
+-------------------------------------------------------------------------------------------------
+
+Extract venv.rar and ensure venv folder is on the same path as main.py to view the full items
 
 
 
